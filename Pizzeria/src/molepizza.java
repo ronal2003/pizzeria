@@ -3,10 +3,10 @@ import javax.swing.*;
 public class molepizza {
 
     int cantidad_pizzas, cant_ingredientes;
-    int Valor_pizza = 0, valor_jamon = 0, valor_peperoni = 0, valor_pollo = 0, valor_tomate = 0, valor_atun = 0, valor_albaca = 0, valor_champiñones = 0, valor_pedido = 0;
-    int valor1=0,valor2=0,valor3=0,valor4=0,valor5=0,valor6=0,valor7=0;
-    int Cantpizzas[][] = new int[2][2];
-    int ingredientes[][] = new int[4][2];
+    int Valor_pizza = 5000, valor_jamon = 0, valor_peperoni = 0, valor_pollo = 0, valor_tomate = 0, valor_atun = 0, valor_albaca = 0, valor_champiñones = 0, valor_pedido = 0;
+    int valor1 = 0, valor2 = 0, valor3 = 0, valor4 = 0, valor5 = 0, valor6 = 0, valor7 = 0, total_pizzas = 0;
+    int Cantpizzas[] = new int[6];
+    int ingredientes[] = new int[8];
 
     public molepizza() {
         menu();
@@ -34,11 +34,10 @@ public class molepizza {
                 } else if (cantidad_pizzas > 0) {
 
                     System.out.println("Cantidad de pizza(s) ");
-                    Cantpizzas[0][0] = cantidad_pizzas;
-                    System.out.println(Cantpizzas[0][0]);
+                    Cantpizzas[0] = cantidad_pizzas;
+                    Cantpizzas[1] = total_pizzas;
                 }
-                int total = cantidad_pizzas *= Valor_pizza;
-                System.out.print("   " + "precio total " + total);
+                total_pizzas = cantidad_pizzas *= Valor_pizza;
                 menu();
 
 
@@ -60,88 +59,83 @@ public class molepizza {
 
                 switch (opcion) {
                     case "1":
-                        cant_ingredientes+=1;
+                        cant_ingredientes += 1;
                         if (cant_ingredientes > 4) {
                             JOptionPane.showMessageDialog(null, "no puede agregar mas de 4 ingredientes ");
 
                         } else {
 
                             valor1 = valor_jamon += 500;
-                            ingredientes[0][0] = valor1;
-                            System.out.println(ingredientes[0][0]);
+                            ingredientes[0]= valor1;
+
                         }
                         menu();
                         break;
                     case "2":
-                        cant_ingredientes+=1;
+                        cant_ingredientes += 1;
                         if (cant_ingredientes > 5) {
                             JOptionPane.showMessageDialog(null, "no se puede agregar mas de 4 ingredientes ");
                         } else {
                             valor2 = valor_peperoni += 900;
-                            ingredientes[0][0] = valor2;
-                            System.out.println(ingredientes[0][0]);
+                            ingredientes[1] = valor2;
 
                         }
                         menu();
 
                         break;
                     case "3":
-                        cant_ingredientes+=1;
+                        cant_ingredientes += 1;
                         if (cant_ingredientes > 4) {
                             JOptionPane.showMessageDialog(null, "no se puede agregar mas de 4 ingredientes");
                         } else {
                             valor3 = valor_pollo += 700;
-                            ingredientes[0][0] = valor3;
-                            System.out.println(ingredientes[0][0]);
+                            ingredientes[2] = valor3;
+
 
                         }
                         menu();
                         break;
 
                     case "4":
-                        cant_ingredientes+=1;
+                        cant_ingredientes += 1;
                         if (cant_ingredientes > 4) {
                             JOptionPane.showMessageDialog(null, "no se puede agregar mas de 4 ingredientes");
                         } else {
                             valor4 = valor_tomate += 300;
-                            ingredientes[0][0] = valor4;
-                            System.out.println(ingredientes[0][0]);
+                            ingredientes[3] = valor4;
+
 
                         }
                         menu();
                         break;
                     case "5":
-                        cant_ingredientes+=1;
+                        cant_ingredientes += 1;
                         if (cant_ingredientes > 4) {
                             JOptionPane.showMessageDialog(null, "nno se puede agregar mas de 4 ingredientes");
                         } else {
                             valor5 = valor_atun += 1200;
-                            ingredientes[0][0] = valor5;
-                            System.out.println(ingredientes[0][0]);
+                            ingredientes[4] = valor5;
 
                         }
                         menu();
                         break;
                     case "6":
-                        cant_ingredientes+=1;
+                        cant_ingredientes += 1;
                         if (cant_ingredientes > 4) {
                             JOptionPane.showMessageDialog(null, "no se puede agregar mas de 4 ingredientes");
                         } else {
                             valor6 = valor_albaca += 400;
-                            ingredientes[0][0] = valor6;
-                            System.out.println(ingredientes[0][0]);
-
+                            ingredientes[5] = valor6;
                         }
                         menu();
                         break;
                     case "7":
-                        cant_ingredientes+=1;
+                        cant_ingredientes += 1;
                         if (cant_ingredientes > 4) {
                             JOptionPane.showMessageDialog(null, "no se puede agregar mas de 4 ingredientes");
                         } else {
                             valor7 = valor_champiñones += 800;
-                            ingredientes[0][0] = valor7;
-                            System.out.println(ingredientes[0][0]);
+                            ingredientes[6] = valor7;
 
                         }
                         menu();
@@ -157,18 +151,26 @@ public class molepizza {
                 break;
 
             case "3":
-                int Total = valor1 + valor2 + valor3 + valor4 + valor5 + valor6 + valor7;
+                //int Cantpizzas[] = new int[6];
+                //int ingredientes[] = new int[8];
 
-                System.out.print(" | " +"Total de todos los ingredientes \n");
-                System.out.print(" | " +"precio total de jamon " +valor1 +         "| ");
-                System.out.print(" | " +"perecio Total de peperoni " +valor2 +     "| ");
-                System.out.println(" | " +"perecio Total de pollo " +valor3 +        "| ");
-                System.out.print(" | "+"perecio Total de tomate " +valor4+         "| ");
-                System.out.print(" | "+"perecio Total de atun " +valor5 +          "| ");
-                System.out.print(" | "+"perecio Total de albaca " +valor6 +        "| ");
-                System.out.println(" | " +"perecio Total de champiñones " +valor7 +  "| ");
-                System.out.println(" | " + "Total " + Total + " | " );
+                System.out.println("Lista de menu ordenado de pizzas");
+                int Total = ingredientes[0] + ingredientes[1] + ingredientes[2] + ingredientes[3] + ingredientes[4] + ingredientes[5] + ingredientes[6];
+                        if(ingredientes[0] > 0){
 
+                            System.out.print(" | "+"Pizza " + Cantpizzas[0] + " | ");
+                            System.out.print(" | "+"Jamon " +ingredientes[0] + "| ");
+                            System.out.print(" | "+"peperoni " +ingredientes[1]+ " | ");
+                            System.out.print(" | "+"pollo " +ingredientes[2] + " | ");
+                            System.out.print(" | "+"tomate  " +ingredientes[3] + " | ");
+                            System.out.print(" | "+"atun " +ingredientes[4] + " | ");
+                            System.out.print(" | "+"albaca " +ingredientes[5] + " | ");
+                            System.out.print(" | "+"champiñones " +ingredientes[6] + " | ");
+                            System.out.print(" | "+"Total " + Total + " | ");
+
+                        } else {
+
+                        }
                 menu();
                 break;
 
