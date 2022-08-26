@@ -2,12 +2,15 @@ import javax.swing.*;
 
 public class molepizza {
 
-    int cantidad_pizzas, cant_ingredientes;
-    int Valor_pizza = 5000, valor_jamon = 0, valor_peperoni = 0, valor_pollo = 0, valor_tomate = 0, valor_atun = 0, valor_albaca = 0, valor_champiñones = 0, valor_pedido = 0;
+    int cant_pizzas, cant_ingredientes;
+    int Valor_pizza = 5000, valor_jamon = 0,
+            valor_peperoni = 0, valor_pollo = 0,
+            valor_tomate = 0, valor_atun = 0,
+            valor_albaca = 0, valor_champiñones = 0,
+            valor_pedido = 0;
     int valor1 = 0, valor2 = 0, valor3 = 0, valor4 = 0, valor5 = 0, valor6 = 0, valor7 = 0, total_pizzas = 0;
-    int Cantpizzas[] = new int[6];
-    int ingredientes[] = new int[8];
-
+    int Contenedor[][] = new int[6][8];
+    int column=0;
     public molepizza() {
         menu();
     }
@@ -26,20 +29,18 @@ public class molepizza {
         switch (entrada) {
 
             case "1":
-                cantidad_pizzas = Integer.parseInt(JOptionPane.showInputDialog("Diguite la cantidad de pizzas que desea ordenar"));
+                cant_pizzas = Integer.parseInt(JOptionPane.showInputDialog("Diguite la cantidad de pizzas que desea ordenar"));
 
-                if (cantidad_pizzas > 4) {
+                if (cant_pizzas > 4) {
                     JOptionPane.showMessageDialog(null, "No se puede pedir mas de 5 pizzas");
                     menu();
-                } else if (cantidad_pizzas > 0) {
+                } else if (cant_pizzas > 0) {
+                    Contenedor[column][0] = cant_pizzas;
+                    Contenedor[column][1] = total_pizzas;
 
-                    System.out.println("Cantidad de pizza(s) ");
-                    Cantpizzas[0] = cantidad_pizzas;
-                    Cantpizzas[1] = total_pizzas;
                 }
-                total_pizzas = cantidad_pizzas *= Valor_pizza;
+                total_pizzas = cant_pizzas *= Valor_pizza;
                 menu();
-
 
                 break;
             case "2":
@@ -62,12 +63,9 @@ public class molepizza {
                         cant_ingredientes += 1;
                         if (cant_ingredientes > 4) {
                             JOptionPane.showMessageDialog(null, "no puede agregar mas de 4 ingredientes ");
-
                         } else {
-
                             valor1 = valor_jamon += 500;
-                            ingredientes[0]= valor1;
-
+                            Contenedor[column][2] = valor1;
                         }
                         menu();
                         break;
@@ -77,7 +75,7 @@ public class molepizza {
                             JOptionPane.showMessageDialog(null, "no se puede agregar mas de 4 ingredientes ");
                         } else {
                             valor2 = valor_peperoni += 900;
-                            ingredientes[1] = valor2;
+                            Contenedor[column][3] = valor2;
 
                         }
                         menu();
@@ -85,13 +83,11 @@ public class molepizza {
                         break;
                     case "3":
                         cant_ingredientes += 1;
-                        if (cant_ingredientes > 4) {
+                        if (Contenedor[column][4] > Contenedor[column][4]) {
                             JOptionPane.showMessageDialog(null, "no se puede agregar mas de 4 ingredientes");
                         } else {
                             valor3 = valor_pollo += 700;
-                            ingredientes[2] = valor3;
-
-
+                            Contenedor[column][4] = valor3;
                         }
                         menu();
                         break;
@@ -102,8 +98,7 @@ public class molepizza {
                             JOptionPane.showMessageDialog(null, "no se puede agregar mas de 4 ingredientes");
                         } else {
                             valor4 = valor_tomate += 300;
-                            ingredientes[3] = valor4;
-
+                            Contenedor[column][5] = valor4;
 
                         }
                         menu();
@@ -114,8 +109,7 @@ public class molepizza {
                             JOptionPane.showMessageDialog(null, "nno se puede agregar mas de 4 ingredientes");
                         } else {
                             valor5 = valor_atun += 1200;
-                            ingredientes[4] = valor5;
-
+                            Contenedor[column][6] = valor5;
                         }
                         menu();
                         break;
@@ -125,7 +119,7 @@ public class molepizza {
                             JOptionPane.showMessageDialog(null, "no se puede agregar mas de 4 ingredientes");
                         } else {
                             valor6 = valor_albaca += 400;
-                            ingredientes[5] = valor6;
+                            Contenedor[column][7] = valor6;
                         }
                         menu();
                         break;
@@ -135,8 +129,7 @@ public class molepizza {
                             JOptionPane.showMessageDialog(null, "no se puede agregar mas de 4 ingredientes");
                         } else {
                             valor7 = valor_champiñones += 800;
-                            ingredientes[6] = valor7;
-
+                            Contenedor[column][8] = valor7;
                         }
                         menu();
                         break;
@@ -151,26 +144,29 @@ public class molepizza {
                 break;
 
             case "3":
-                //int Cantpizzas[] = new int[6];
-                //int ingredientes[] = new int[8];
+                int Total = valor1 + valor2 + valor3 + valor4 + valor5 + valor6 + valor7;
 
-                System.out.println("Lista de menu ordenado de pizzas");
-                int Total = ingredientes[0] + ingredientes[1] + ingredientes[2] + ingredientes[3] + ingredientes[4] + ingredientes[5] + ingredientes[6];
-                        if(ingredientes[0] > 0){
+                if(Contenedor[column][0] > 0){
+                    System.out.println("Lista de menu ordenado de pizzas");
+                    System.out.println("|-----------------------------------------------------------------------------|");
+                    System.out.println("Pizzas");
+                    System.out.println(" | " + "cangidad de Pizzas " + Contenedor[column][0] + " | ");
+                    System.out.print("Ingredientes:  ");
+                    System.out.print("   | " + "Jamon " + Contenedor[column][1] + "       | ");
+                    System.out.print("   | " + "peperoni " + Contenedor[column][2] + "    | ");
+                    System.out.print("   | " + "pollo " + Contenedor[column][3] + "       | ");
+                    System.out.print("   | " + "tomate  " + Contenedor[column][4] + "     | ");
+                    System.out.print("   | " + "atun " + Contenedor[column][5] + "        | ");
+                    System.out.print("   | " + "albaca " + Contenedor[column][6] + "      | ");
+                    System.out.print("   | " + "champiñones " + Contenedor[column][7] + " | ");
+                    System.out.println();
+                    System.out.print("Total = ");
+                    System.out.println(  Total );
+                    System.out.print("| -----------------------------------------------------------------------------|");
 
-                            System.out.print(" | "+"Pizza " + Cantpizzas[0] + " | ");
-                            System.out.print(" | "+"Jamon " +ingredientes[0] + "| ");
-                            System.out.print(" | "+"peperoni " +ingredientes[1]+ " | ");
-                            System.out.print(" | "+"pollo " +ingredientes[2] + " | ");
-                            System.out.print(" | "+"tomate  " +ingredientes[3] + " | ");
-                            System.out.print(" | "+"atun " +ingredientes[4] + " | ");
-                            System.out.print(" | "+"albaca " +ingredientes[5] + " | ");
-                            System.out.print(" | "+"champiñones " +ingredientes[6] + " | ");
-                            System.out.print(" | "+"Total " + Total + " | ");
+                } else {
 
-                        } else {
-
-                        }
+                }
                 menu();
                 break;
 
